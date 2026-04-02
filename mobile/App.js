@@ -1,3 +1,6 @@
+import { installInterceptor } from './src/services/FetchInterceptor';
+installInterceptor(); // Tüm fetch isteklerini yerel backend'e yönlendir
+
 import React, { useState } from 'react';
 import { StatusBar } from 'react-native';
 import AuthScreen from './src/screens/AuthScreen';
