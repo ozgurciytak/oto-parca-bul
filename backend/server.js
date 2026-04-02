@@ -19,19 +19,24 @@ app.use('/api/admin', require('./routes/admin'));
 
 const startServer = async () => {
   try {
-    const mongoServer = await MongoMemoryServer.create();
-    const mongoUri = mongoServer.getUri();
+    let mongoUri;
+    if (process.env.MONGODB_URI) {
+      mongoUri = process.env.MONGODB_URI;
+      await mongoose.connect(mongoUri);
+      console.log('✅ Bulut MongoDB (Atlas) Bağlandı!');
+    } else {
+      const mongoServer = await MongoMemoryServer.create();
+      mongoUri = mongoServer.getUri();
+      await mongoose.connect(mongoUri);
+      console.log('✅ MongoDB Memory Server (Lokal) Bağlandı!');
+    }
     
-    await mongoose.connect(mongoUri);
-    console.log('✅ MongoDB Memory Server Bağlandı!');
-
     // ÖNEMLİ: Bağlantı kurulur kurulmaz SEED (Ahmet ve Mert) Yükle
     await seedDb();
 
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, '0.0.0.0', () => {
-      console.log(`🚀 API Dinleniyor: http://localhost:${PORT}`);
-      console.log(`🌐 Uzak Erişim: http://192.168.1.166:${PORT}`);
+      console.log(`🚀 API Dinleniyor. Port: ${PORT}`);
     });
   } catch (error) {
     console.error('SERVER HATASI:', error);

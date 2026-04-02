@@ -1,1 +1,1 @@
-export const API_URL = 'https://sunucuadresiniz.com/api'; // TODO: Gerçek sunucu IP/Domain'i buraya yazılacak
+export const API_URL = 'https://oto-parca-bul.onrender.com/api'; // GitHub üzerinden otomatik güncellenen sunucu adresi
