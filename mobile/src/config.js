@@ -1,1 +1,1 @@
-export const API_URL = 'https://github.com/ozgurciytak/oto-parca-bul/api'; // GitHub üzerinden sunucu erişimi için ayarlandı
+export const API_URL = 'https://oto-parca-bul-api.onrender.com/api'; // GitHub üzerinden otomatik güncellenen doğru adres
