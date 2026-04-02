@@ -28,7 +28,7 @@ const startServer = async () => {
     // ÖNEMLİ: Bağlantı kurulur kurulmaz SEED (Ahmet ve Mert) Yükle
     await seedDb();
 
-    const PORT = 5000;
+    const PORT = process.env.PORT || 5000;
     app.listen(PORT, '0.0.0.0', () => {
       console.log(`🚀 API Dinleniyor: http://localhost:${PORT}`);
       console.log(`🌐 Uzak Erişim: http://192.168.1.166:${PORT}`);
