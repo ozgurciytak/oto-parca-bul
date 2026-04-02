@@ -1,1 +1,1 @@
-export const API_URL = 'http://192.168.1.37:5000/api';
+export const API_URL = 'https://sunucuadresiniz.com/api'; // TODO: Gerçek sunucu IP/Domain'i buraya yazılacak
